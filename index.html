@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ben Taylor</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --muted: #6b6b6b;
+    --accent: #2f6fed;
+    --border: #ececec;
+    --max-width: 780px;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .wrap {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  header.hero {
+    padding: 96px 0 64px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  header.hero .hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  header.hero .headshot {
+    flex: 0 0 auto;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--border);
+  }
+
+  header.hero h1 {
+    font-size: 2.4rem;
+    margin: 0 0 8px;
+    letter-spacing: -0.02em;
+  }
+
+  header.hero p.tagline {
+    font-size: 1.15rem;
+    color: var(--muted);
+    margin: 0 0 24px;
+  }
+
+  nav.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 0.95rem;
+  }
+
+  nav.contact-links span {
+    color: var(--muted);
+  }
+
+  section {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  section:last-of-type {
+    border-bottom: none;
+  }
+
+  section h2 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+
+  .swipe-hint {
+    margin: 0 0 24px;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .projects {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px 4px 20px;
+    margin: -4px -4px 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+
+  .projects::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .projects::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .projects::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+  }
+
+  .project-card {
+    display: block;
+    flex: 0 0 260px;
+    scroll-snap-align: start;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+
+  .project-card .thumb {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background: #f4f4f4;
+    overflow: hidden;
+  }
+
+  .project-card .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+
+  .project-card .card-body {
+    padding: 20px;
+  }
+
+  .project-card h3 {
+    margin: 0 0 6px;
+    font-size: 1.1rem;
+    color: var(--text);
+  }
+
+  .project-card p {
+    margin: 0 0 10px;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .project-card .url {
+    font-size: 0.8rem;
+    color: var(--accent);
+    word-break: break-all;
+  }
+
+  footer {
+    padding: 48px 0 80px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  footer .contact {
+    margin-bottom: 8px;
+  }
+
+  footer .contact a {
+    color: var(--text);
+  }
+
+  @media (max-width: 600px) {
+    header.hero { padding: 64px 0 40px; }
+    header.hero h1 { font-size: 1.9rem; }
+    header.hero .hero-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+    header.hero .headshot { width: 96px; height: 96px; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <img class="headshot" src="professional_headshot.jpg" alt="Headshot of Ben Taylor">
+      <div>
+        <h1>Ben Taylor</h1>
+        <p class="tagline">Projects, experiments, and things I've built.</p>
+        <nav class="contact-links">
+          <span>Phone: (225) 999-3050</span>
+          <span>&middot;</span>
+          <a href="mailto:ssbentaylorr@gmail.com">ssbentaylorr@gmail.com</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <p class="swipe-hint">Swipe or scroll horizontally to see more &rarr;</p>
+      <div class="projects">
+
+        <a class="project-card" href="https://taylor-benjamin.github.io/infosec-playground/" target="_blank" rel="noopener">
+          <div class="thumb">
+            <img src="infosec_image.png" alt="Preview of Infosec Playground" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>Infosec Playground</h3>
+            <p>A hands-on space for information security experiments and exercises.</p>
+            <div class="url">taylor-benjamin.github.io/infosec-playground</div>
+          </div>
+        </a>
+
+        <a class="project-card" href="https://taylor-benjamin.github.io/resume_website/" target="_blank" rel="noopener">
+          <div class="thumb">
+            <img src="Personal_resume_image.png" alt="Preview of Resume Website" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>Resume Website</h3>
+            <p>An online resume showcasing my background and experience.</p>
+            <div class="url">taylor-benjamin.github.io/resume_website</div>
+          </div>
+        </a>
+
+        <a class="project-card" href="https://taylor-benjamin.github.io/crime_wave/" target="_blank" rel="noopener">
+          <div class="thumb">
+            <img src="crimaewave_image.png" alt="Preview of Crime Wave" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>Crime Wave</h3>
+            <p>A data-driven project analyzing crime trends.</p>
+            <div class="url">taylor-benjamin.github.io/crime_wave</div>
+          </div>
+        </a>
+
+        <a class="project-card" href="https://taylor-benjamin.github.io/Cert_Tracker/" target="_blank" rel="noopener">
+          <div class="thumb">
+            <img src="cert_tracker_image.png" alt="Preview of Cert Tracker" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>Cert Tracker</h3>
+            <p>A tool for tracking certifications and their progress.</p>
+            <div class="url">taylor-benjamin.github.io/Cert_Tracker</div>
+          </div>
+        </a>
+
+        <a class="project-card" href="https://taylor-benjamin.github.io/Flappy_Bird/" target="_blank" rel="noopener">
+          <div class="thumb">
+            <img src="https://image.thum.io/get/width/600/crop/375/noanimate/https://taylor-benjamin.github.io/Flappy_Bird/" alt="Preview of Flappy Bird" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>Flappy Bird</h3>
+            <p>A browser-based recreation of the classic game.</p>
+            <div class="url">taylor-benjamin.github.io/Flappy_Bird</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="contact">
+        <strong>Ben Taylor</strong><br>
+        (225) 999-3050 &middot; <a href="mailto:ssbentaylorr@gmail.com">ssbentaylorr@gmail.com</a>
+      </div>
+      <div>&copy; <span id="year"></span> Ben Taylor</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
