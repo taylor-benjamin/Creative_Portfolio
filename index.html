@@ -48,10 +48,25 @@
     flex: 0 0 auto;
     width: 120px;
     height: 120px;
+    position: relative;
+    display: block;
+    overflow: hidden;
     border-radius: 50%;
-    object-fit: cover;
     border: 1px solid var(--border);
+    background: #fff;
   }
+
+  header.hero .headshot img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+  }
+
+  header.hero .headshot .headshot-hover { opacity: 0; }
+  header.hero .headshot:hover .headshot-hover { opacity: 1; }
 
   header.hero h1 {
     font-size: 2.4rem;
@@ -205,7 +220,10 @@
 
   <header class="hero">
     <div class="wrap hero-inner">
-      <img class="headshot" src="professional_headshot.jpg" alt="Headshot of Ben Taylor">
+      <div class="headshot">
+        <img src="professional_headshot.jpg" alt="Headshot of Ben Taylor">
+        <img class="headshot-hover" src="logo.jpg" alt="" aria-hidden="true">
+      </div>
       <div>
         <h1>Ben Taylor</h1>
         <p class="tagline">Projects, experiments, and things I've built.</p>
